@@ -1,27 +1,37 @@
-var matrix = [[0, 1, 0], [1, 1, 0], [1, 1, 1]];
-var $table = document.querySelector('table')
+function matrixMixer(tr, td) {
+  var matrix=[];
+	for(var i = 0; i < tr; i++) {
+  matrix[i]=[];
+  	for(var j = 0; j < td; j++) {
+    	matrix[i][j] = Math.round(Math.random())
+  	}
+  }
+  return matrix;
+}
 
-function addItem(matrix){
-	$table.innerHTML = ' ';
-	for(var i = 0; i < matrix.length; i++){
+function addRowItem($table, item){
 		var $tr = document.createElement('tr');
+		$table.innerHTML = ' ';
 		$table.appendChild($tr);
 
-		for (var j = 0; j < matrix.length; j++) {
+function addColumnItem($table, item){
    		var $td = document.createElement('td');
-      	$td.innerText = matrix[i][j];
-            $tr.appendChild($td);
-            if (matrix[i][j] === 0) {
-                    $td.style.backgroundColor = 'orange';
-            } else {
-                   $td.style.backgroundColor = 'blue';
-            } 
-          }
-  }
-}
+			$table.innerHTML = ' ';
+			$table.appendChild($td);
+			
+
+
 document.addEventListener("DOMContentLoaded", function(){  
-   addItem(matrix); 
+	var $table = document.getElementById('table');
+  var matrix = matrixMixer(3,3);
+
+    for(var i = 0; i < matrix.length; i++){
+      addRowItem($table, matrix[i]);
+ 
+      for(var j = 0; j < matrix[i].length; j++){
+        addColumnItem($table, matrix[i][j]); 
+      }
+    }	
 });
-		
 
 
