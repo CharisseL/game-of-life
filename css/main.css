@@ -1,4 +1,13 @@
 tr, td {
-	height: 2em;
-	width: 2em;
+	height:3.5em;
+	width: 3.5em;
+	color: lightgray;
+}
+
+td.dead {
+	background-color: black;
+}
+
+td.alive {
+	background-color: orange;
 }
