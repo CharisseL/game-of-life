@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
-  var matrix = [[0, 1, 0], [0, 1, 1], [0, 1, 1]];
-  generateGrid(matrix);
+  // var matrix = [[0, 1, 0], [0, 1, 1], [0, 1, 1]];
+  var matrix = matrixCreator(3,3);
+	generateGrid(matrix);
 
   function generateGrid(matrix){
     var $table = document.querySelector('#grid');
@@ -83,6 +84,19 @@ document.addEventListener('DOMContentLoaded', function(){
     });
     return nextState;
   }
+
+
+
+	function matrixCreator(x,y) {
+		var matrix = [];
+			for (var i = 0; i < x; i++){
+				matrix[i] = [];
+					for (var j = 0; j < y; j++){
+						matrix[i][j] = Math.round(Math.random())
+					}	
+			}	
+	return matrix;
+	}
 
   document.querySelector("#tick").addEventListener('click', function(){
     // Tick button has been pressed
